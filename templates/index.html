@@ -8,6 +8,10 @@
 <body class="bg-light text-center mt-5">
   <div class="container">
     <img src="{{ url_for('static', filename='Escudo-Color.png') }}" width="160" class="mb-4" alt="Logo Universidad de Sonora">
+    <!--Mensaje de bienvenida-->
+    <h2 class="mb-2">Bienvenido(a)</h2>
+    <!--Lista de integrantes-->
+    <p class="mb-4">Creado por Andres Mendivil y Eduardo Luna</p>
     <h1 class="mb-4">Administrador de Notas</h1>
     <a href="{{ url_for('crear_nota') }}" class="btn btn-primary btn-lg">Crear nueva nota</a>
   </div>
