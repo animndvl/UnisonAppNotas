@@ -13,9 +13,10 @@ def crear_nota():
     if request.method == 'POST':
         titulo = request.form['titulo']
         contenido = request.form['contenido']
-        
-        print(f"Título: {titulo}, Contenido: {contenido}")
-        return redirect(url_for('index'))
+        manejador = ManejadorDeNotas()
+        manejador.crear_nota(titulo, contenido)
+        manejador.cerrar()
+        return redirect(url_for('listar_notas'))
     return render_template('crear_nota.html')
 
 @app.route('/listar_notas')
