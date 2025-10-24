@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
+from nota import ManejadorDeNotas
 
 app = Flask(__name__)
+manejador = ManejadorDeNotas()
 
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template('index.html')
 
@@ -15,6 +18,11 @@ def crear_nota():
         print(f"Título: {titulo}, Contenido: {contenido}")
         return redirect(url_for('index'))
     return render_template('crear_nota.html')
+
+@app.route('/listar_notas')
+def listar_notas():
+    notas = manejador.leer_notas()
+    return render_template('listar_notas.html', notas=notas)
 
 if __name__ == '__main__':
     app.run(debug=True)
