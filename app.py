@@ -21,7 +21,9 @@ def crear_nota():
 
 @app.route('/listar_notas')
 def listar_notas():
+    manejador = ManejadorDeNotas()
     notas = manejador.leer_notas()
+    manejador.cerrar()
     return render_template('listar_notas.html', notas=notas)
 
 if __name__ == '__main__':
